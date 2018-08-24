@@ -8,10 +8,7 @@ public class Transform <Item> {
 		for (int r = 0; 2*r < N; r++) {
 			for (int c = r; c < l-r; c++) {
 				Point[] points = new Point[4];
-				System.out.println("row: " + r);
-				System.out.println("col: " + c);
 				if (r == c) {
-					System.out.println("CORNERS");
 					points[0] = new Point(r, c);
 					
 					int r2 = c;
@@ -27,9 +24,7 @@ public class Transform <Item> {
 					points[3] = new Point(r4, c4);
 					
 					exch(data, points);
-					printMatrix(data);
 				} else {
-					System.out.println("EDGES");
 					points[0] = new Point(r, c);
 					
 					int r2 = c;
@@ -45,7 +40,6 @@ public class Transform <Item> {
 					points[3] = new Point(r4, c4);
 					
 					exch(data, points);
-					printMatrix(data);
 				}
 			}
 		}
@@ -91,31 +85,21 @@ public class Transform <Item> {
 	
 	public static void main (String[] args) {
 		int[] nums = {
-				1,2,2,3,
-				8,9,9,4,
-				8,0,0,4,
-				7,6,6,5
+				1,2,2,2,2,2,2,3,
+				8,9,9,9,9,9,9,4,
+				8,0,0,0,0,0,0,4,
+				8,9,9,9,9,9,9,4,
+				8,0,0,0,0,0,0,4,
+				8,9,9,9,9,9,9,4,
+				8,0,0,0,0,0,0,4,
+				7,6,6,6,6,6,6,5
 			};
-		int l = nums.length;
-		int N = l/4;
+		int N = 8;
 		
 		Object[][] data = new Object[N][N];
-		
-//		for (int i = 0; i < N; i++) {
-//			for (int j = 0; j < N; j++) {
-//				int red = (int) Math.random() * 256;
-//				int green = (int) Math.random() * 256;
-//				int blue = (int) Math.random() * 256;
-//				
-//				data[i][j] = new PX(red, green, blue);
-//			}
-//		}
 		int c = 0;
 		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				//int num = (int) (Math.random()*10);
-				//System.out.println(num);
-				
+			for (int j = 0; j < N; j++) {				
 				data[i][j] = nums[c++];
 			}
 		}
